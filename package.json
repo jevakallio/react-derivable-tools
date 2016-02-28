@@ -1,7 +1,7 @@
 {
   "name": "react-derivable",
   "version": "0.0.0",
-  "description": "Exploring using DerivableJS with React",
+  "description": "Utilities for using DerivableJS with React",
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src"
