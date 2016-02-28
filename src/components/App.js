@@ -3,6 +3,7 @@ import html from '../util/html';
 import * as AppState from '../state/AppState';
 import Home from './Home';
 import Item from './Item';
+import Experiment from './Experiment';
 import router from '../router';
 
 const {div, h1, h3, button} = html;
@@ -18,6 +19,7 @@ const renderRoute = (route) => {
   }
 };
 
+
 // Example of component that accesses derivables directly
 // instead of unpacking in bind
 const App = () => {
@@ -25,7 +27,8 @@ const App = () => {
   return (
     div({className: 'app'},
       h1({key: 'header'}, route.get('component')),
-      renderRoute(route)
+      renderRoute(route),
+      Experiment({title: 'Experimental stuff'}),
     )
   );
 };
