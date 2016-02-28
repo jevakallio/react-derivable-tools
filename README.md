@@ -45,7 +45,7 @@ Let's write a React app that displays the list and sum, and allows the user to a
 import ReactDOM from 'react-dom';
 import {Container} from 'dreact-derivable/lib/index';
 
-// Our root component is just a plan function that derefences one of more Derivables, 
+// Our root component is just a plan function that derefences one of more Derivables,
 // in this case, `Sum`. When the Sum updates, the app will rerender.
 const App = () => (
   <div>
@@ -85,10 +85,9 @@ const schema = {
   }
 };
 
-// The renderer is just a function that translates `props` to `vdom`, which the
-// exception that if the first parameter `probe` is true, the component must return
-// its props instead. This is used by the component factory to introspect the schema.
-const ItemsView = Component((probe, props = schema) => probe ? props : (
+// The renderer is just a function that translates `props` to `vdom`, with the
+// exception that we pass the schema in as the first parameter
+const ItemsView = Component(schema, props => (
   <div>
     <h3>{props.title}</h3>
     <ul>

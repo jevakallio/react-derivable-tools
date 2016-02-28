@@ -15,7 +15,7 @@ const addItem = () => Items.swap(items => items.push(items.size));
 // Define types and optional source for data. If values are Derivables,
 
 // The component updates automatically when new derivations are computed
-const dataSource = {
+const schema = {
   title: {
     type: PropTypes.string
   },
@@ -26,7 +26,7 @@ const dataSource = {
 };
 
 // Simple component
-const ItemsView = Component((probe, props = dataSource) => probe ? props : (
+const ItemsView = Component(schema, props => (
   <div>
     <h3>{props.title}</h3>
     <ul>

@@ -7,7 +7,7 @@ import * as AppState from '../state/AppState';
 
 const {div, h3, button} = html;
 
-const source = {
+const schema = {
   count: {
     type: PropTypes.number.isRequired,
     value: AppState.Numbers.derive(ns => ns.size)
@@ -18,7 +18,7 @@ const source = {
   }
 };
 
-const Home = DerivableComponent((probe, props = source) => probe ? props : (
+const Home = DerivableComponent(schema, props => (
   div({},
     button({onClick: AppState.addNumber}, 'Add log entry'),
     button({onClick: AppState.toggleLog},

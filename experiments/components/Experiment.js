@@ -9,7 +9,7 @@ import * as AppState from '../state/AppState';
 const {div, h3, ul, li} = html;
 const {string, instanceOf} = PropTypes;
 
-const source = {
+const schema = {
   title: {
     type: string.isRequired
   },
@@ -19,7 +19,7 @@ const source = {
   }
 };
 
-const Experiment = DerivableComponent((probe, props = source) => probe ? props : (
+const Experiment = DerivableComponent(schema, props => (
   div({},
     h3({}, props.title),
     ul({}, props.numbers.map(n => li({key: `item${n}`}, `Item: ${n}`)))
