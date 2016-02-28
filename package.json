@@ -46,7 +46,6 @@
   },
   "dependencies": {
     "derivable": "^0.12.1",
-    "react": "^0.14.0",
-
+    "react": "^0.14.0"
   }
 }
