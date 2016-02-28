@@ -12,7 +12,7 @@ const renderRoute = (route) => {
     case 'Home':
       return Home.get();
     case 'Item':
-      return h1({style: {fontSize: '100px'}}, route.getIn(['props', 'id']).toString());
+      return Item({id: route.getIn(['props', 'id']).toString()});
     default:
       return h3({style: 'color:red;'}, 'Page not found');
   }
