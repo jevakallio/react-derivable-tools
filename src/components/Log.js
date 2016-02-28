@@ -1,7 +1,8 @@
-import {bind, html} from '../util';
+import bind from '../util/bind';
+import html from '../util/html';
 import * as AppState from '../state/AppState';
 
-const {ul, li} = html;
+const {a, ul, li} = html;
 
 const props = () => ({
   numbers: AppState.Numbers.get()
@@ -9,7 +10,10 @@ const props = () => ({
 
 const Log = ({numbers}) => (
   ul({key: 'list'}, numbers.map(i =>
-    li({key: `item-${i}`}, `Item ${i}`)))
+    li({key: `item-${i}`}, [
+      a({href: `#/item/${i}`}, `Item ${i}`)
+    ])
+  ))
 );
 
 export default bind(Log, props);

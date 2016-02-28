@@ -1,0 +1,10 @@
+import html from '../util/html';
+
+const {h1} = html;
+
+// Plain. unbound component
+const Item = ({id}) => (
+   h1({style: {fontSize: '100px'}}, id.toString())
+);
+
+export default Item;

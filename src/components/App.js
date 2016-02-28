@@ -1,31 +1,33 @@
-import {bind, html} from '../util';
+import bind from '../util/bind';
+import html from '../util/html';
 import * as AppState from '../state/AppState';
-import Log from './Log';
+import Home from './Home';
+import Item from './Item';
+import router from '../router';
 
 const {div, h1, h3, button} = html;
 
-// Maps derivable state to props, similarly to redux.
-// Adding some TypeScript here would be nice in lieu of using PropTypes
-const props = () => ({
-  title: 'Derivable/React demo',
-  count: AppState.Count.get(),
-  logVisible: AppState.LogVisible.get()
-});
+const renderRoute = (route) => {
+  switch(route.get('component')) {
+    case 'Home':
+      return Home.get();
+    case 'Item':
+      return h1({style: {fontSize: '100px'}}, route.getIn(['props', 'id']).toString());
+    default:
+      return h3({style: 'color:red;'}, 'Page not found');
+  }
+};
 
-const App = ({title, count, logVisible}) => (
-  div({className: 'app'}, [
-    h1({key: 'header'}, title),
+// Example of component that accesses derivables directly
+// instead of unpacking in bind
+const App = () => {
+  const route = AppState.Navigation.get();
+  return (
+    div({className: 'app'}, [
+      h1({key: 'header'}, route.get('component')),
+      renderRoute(route)
+    ])
+  );
+};
 
-    // update state
-    button({key: 'addButton', onClick: AppState.addNumber}, 'Add log entry'),
-    button({key: 'toggleButton', onClick: AppState.toggleLog},
-      logVisible ? 'Hide log' : 'Show log'),
-
-    h3({key: 'entryTitle'}, `Log entries: ${count}`),
-
-    // a nested derivable component
-    logVisible && Log.get()
-  ])
-);
-
-export default bind(App, props);
+export default bind(App);
