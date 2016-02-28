@@ -1,4 +1,4 @@
-import html from '../util/html';
+import html from '../html';
 
 const {h1} = html;
 

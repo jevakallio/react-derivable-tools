@@ -1,6 +1,6 @@
 import {PropTypes} from 'react';
-import DerivableComponent from '../util/DerivableComponent';
-import html from '../util/html';
+import DerivableComponent from '../../DerivableComponent';
+import html from '../html';
 import * as AppState from '../state/AppState';
 import Log from './Log';
 
