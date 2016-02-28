@@ -45,8 +45,8 @@ Let's write a React app that displays the list and sum, and allows the user to a
 import ReactDOM from 'react-dom';
 import {Container} from 'dreact-derivable/lib/index';
 
-// Our root component is just a plan function that derefences one of more Derivables, 
-// in this case, `Sum`. When the Sum updates, the app will rerender.
+// Our root component is just a plain function that derefences one or more Derivables, 
+// in this case, `Sum`, from the previous code block. When the derivables update, the app will rerender.
 const App = () => (
   <div>
     <button onClick={addItem}>Add number</button>
@@ -62,8 +62,6 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-
-
 
 Finally, let's implement the missing `ItemsView` using `Derivable.Component`. We can provide a schema to a component, specifying a PropTypes and an optional values for each property, keeping the data requirements and validation co-located.
 
@@ -85,7 +83,7 @@ const schema = {
   }
 };
 
-// The renderer is just a function that translates `props` to `vdom`, which the
+// The renderer is just a function that translates `props` to `vdom`, with the
 // exception that if the first parameter `probe` is true, the component must return
 // its props instead. This is used by the component factory to introspect the schema.
 const ItemsView = Component((probe, props = schema) => probe ? props : (
