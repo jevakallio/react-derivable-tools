@@ -1,0 +1,51 @@
+{
+  "name": "react-derivable",
+  "version": "0.0.0",
+  "description": "Exploring using DerivableJS with React",
+  "scripts": {
+    "start": "node server.js",
+    "lint": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jevakallio/react-derivable.git"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "boilerplate",
+    "hot",
+    "reload",
+    "hmr",
+    "live",
+    "edit",
+    "webpack"
+  ],
+  "author": "Jani Eväkallio <jani.evakallio@gmail.com> (http://github.com/jevakallio)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jevakallio/react-derivable/issues"
+  },
+  "homepage": "https://github.com/jevakallio/react-derivable",
+  "devDependencies": {
+    "babel-core": "^6.0.20",
+    "babel-eslint": "^4.1.3",
+    "babel-loader": "^6.0.1",
+    "babel-preset-es2015": "^6.0.15",
+    "babel-preset-react": "^6.0.15",
+    "babel-preset-stage-0": "^6.0.15",
+    "eslint": "^2.2.0",
+    "eslint-plugin-react": "^3.6.2",
+    "react-hot-loader": "^1.3.0",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.1"
+  },
+  "dependencies": {
+    "derivable": "^0.12.1",
+    "hyperscript-helpers": "^2.1.0",
+    "immutable": "^3.7.6",
+    "lodash": "^4.5.1",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0"
+  }
+}
