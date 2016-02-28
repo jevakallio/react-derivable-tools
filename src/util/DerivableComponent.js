@@ -1,11 +1,9 @@
 import React from 'react';
 import {struct, unpack} from 'derivable';
 
-export function Property(type) {
-  return value => ({value, type});
-}
 
-export function DerivableComponent(factory) {
+
+export default function DerivableComponent(factory) {
   const definitions = factory(true);
   const propTypes = {};
   const defaults = {};
@@ -31,4 +29,10 @@ export function DerivableComponent(factory) {
   });
 
   return (props) => <ReactComponent {...bound.get()} {...props} />;
+}
+
+// Helper for creating property definitions
+//  e.g. Prop(string.isRequired)(defaultValue)
+DerivableComponent.Prop = (type) => {
+  return value => ({value, type});
 }
