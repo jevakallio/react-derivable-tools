@@ -1,6 +1,6 @@
 import {Map} from 'immutable';
 import {navigate} from './state/AppState';
-import {register, getHandler} from './routeHandler'
+import {register, getHandler} from './util/routeHandler'
 
 let router = Map();
 
