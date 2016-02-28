@@ -1,8 +1,6 @@
 import React from 'react';
 import {struct, unpack} from 'derivable';
 
-
-
 export default function DerivableComponent(factory) {
   const definitions = factory(true);
   const propTypes = {};
@@ -21,14 +19,14 @@ export default function DerivableComponent(factory) {
 
   const bound = struct(defaults);
 
-  const ReactComponent = React.createClass({
+  const DerivableComponent = React.createClass({
     propTypes,
     render() {
       return factory(false, this.props);
     }
   });
 
-  return (props) => <ReactComponent {...bound.get()} {...props} />;
+  return (props) => <DerivableComponent {...bound.get()} {...props} />;
 }
 
 // Helper for creating property definitions

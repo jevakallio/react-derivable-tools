@@ -1,29 +1,33 @@
-import bind from '../util/bind';
+import {PropTypes} from 'react';
+import DerivableComponent from '../util/DerivableComponent';
 import html from '../util/html';
 import * as AppState from '../state/AppState';
 import Log from './Log';
 
 const {div, h3, button} = html;
+const source = {
+  count: {
+    type: PropTypes.number.isRequired,
+    value: AppState.Count
+  },
+  logVisible: {
+    type: PropTypes.bool.isRequired,
+    value: AppState.LogVisible
+  }
+};
 
-// Maps derivable state to props, similarly to redux.
-// Adding some TypeScript here would be nice in lieu of using PropTypes
-const props = () => ({
-  count: AppState.Count.get(),
-  logVisible: AppState.LogVisible.get()
-});
-
-const Home = ({count, logVisible}) => (
+const Home = DerivableComponent((probe, props = source) => probe ? props : (
   div({},
     // update state
     button({onClick: AppState.addNumber}, 'Add log entry'),
     button({onClick: AppState.toggleLog},
-      logVisible ? 'Hide log' : 'Show log'),
-      
-    h3({}, `Log entries: ${count}`),
+      props.logVisible ? 'Hide log' : 'Show log'),
+
+    h3({}, `Log entries: ${props.count}`),
 
     // a nested derivable component
-    logVisible && Log.get()
+    props.logVisible && Log()
   )
-);
+));
 
-export default bind(Home, props);
+export default Home;
