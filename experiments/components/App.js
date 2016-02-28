@@ -1,4 +1,3 @@
-import Bind from '../util/Bind';
 import html from '../util/html';
 import * as AppState from '../state/AppState';
 import Home from './Home';

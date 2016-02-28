@@ -1,7 +1,7 @@
 
 import {List} from 'immutable';
 import {PropTypes} from 'react';
-import DerivableComponent from '../util/DerivableComponent';
+import DerivableComponent from '../../lib/DerivableComponent';
 import html from '../util/html';
 
 import * as AppState from '../state/AppState';
