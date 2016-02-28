@@ -13,9 +13,10 @@ export function DerivableComponent(factory) {
   Object.keys(definitions).forEach(key => {
     let def = definitions[key];
     if (typeof def === 'function') {
-      propTypes[key] = def(null).type;
-    } else {
-      propTypes[key] = def.type;
+      def = def(null);
+    }
+    propTypes[key] = def.type;
+    if (def.value !== null && typeof def.value !== 'undefined') {
       defaults[key] = def.value;
     }
   });
