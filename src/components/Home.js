@@ -13,17 +13,17 @@ const props = () => ({
 });
 
 const Home = ({count, logVisible}) => (
-  div({}, [
+  div({},
     // update state
-    button({key: 'addButton', onClick: AppState.addNumber}, 'Add log entry'),
-    button({key: 'toggleButton', onClick: AppState.toggleLog},
+    button({onClick: AppState.addNumber}, 'Add log entry'),
+    button({onClick: AppState.toggleLog},
       logVisible ? 'Hide log' : 'Show log'),
-
-    h3({key: 'entryTitle'}, `Log entries: ${count}`),
+      
+    h3({}, `Log entries: ${count}`),
 
     // a nested derivable component
     logVisible && Log.get()
-  ])
+  )
 );
 
 export default bind(Home, props);

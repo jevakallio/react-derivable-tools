@@ -9,10 +9,10 @@ const props = () => ({
 });
 
 const Log = ({numbers}) => (
-  ul({key: 'list'}, numbers.map(i =>
-    li({key: `item-${i}`}, [
+  ul({}, numbers.map(i =>
+    li({key: `item-${i}`},
       a({href: `#/item/${i}`}, `Item ${i}`)
-    ])
+    )
   ))
 );
 

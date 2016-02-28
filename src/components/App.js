@@ -14,7 +14,7 @@ const renderRoute = (route) => {
     case 'Item':
       return Item({id: route.getIn(['props', 'id']).toString()});
     default:
-      return h3({style: 'color:red;'}, 'Page not found');
+      return h3({style: {color: 'red'}}, 'Page not found');
   }
 };
 
@@ -23,10 +23,10 @@ const renderRoute = (route) => {
 const App = () => {
   const route = AppState.Navigation.get();
   return (
-    div({className: 'app'}, [
+    div({className: 'app'},
       h1({key: 'header'}, route.get('component')),
       renderRoute(route)
-    ])
+    )
   );
 };
 
