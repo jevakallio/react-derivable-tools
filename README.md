@@ -3,6 +3,27 @@ react-derivable
 
 Utilities for using [DerivableJS](http://ds300.github.io/derivablejs) with React
 
+## Installation
+`react-derivable` is not on npm yet. In the meantime you can install it directly from github...
+```
+$ npm i --save git+https://git@github.com:jevakallio/react-derivable.git#master
+```
+
+..and import modules from the `/lib` directory
+```
+import Container from 'react-derivable/lib/DerivableContainer';
+import Component from 'react-derivable/lib/DerivableComponent';
+```
+
+## Usage
+
+See below example and code in the `/experiments/` directory for usage instructions. To run the example code, clone this repository and:
+```
+npm install
+npm start
+open http://localhost:3000
+```
+
 ## Example
 
 Here is a running list of numbers, and a sum that is derived from it:
@@ -85,11 +106,3 @@ That's it!
 
 * React >= 0.14
 * DerivableJS
-
-### Run example code
-
-```
-npm install
-npm start
-open http://localhost:3000
-```
