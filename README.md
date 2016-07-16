@@ -1,10 +1,16 @@
-react-derivable
+react-derivable-tools
 =====================
 
 Utilities for using [DerivableJS](http://ds300.github.io/derivablejs) with React
 
+## Deprecated
+
+This experimental repository has been renamed from `react-derivable` to `react-derivable-tools` in favour of [@andreypopp/react-derivable](https://github.com/andreypopp/react-derivable). 
+
+If you are looking to get started with using DerivableJS with React, I recommend using that library instead instead.
+
 ## Installation
-`react-derivable` is not on npm yet. In the meantime you can install it directly from github...
+`react-derivable-tools` is not on npm. In the meantime you can install it directly from github...
 ```
 $ npm i --save git+https://git@github.com:jevakallio/react-derivable.git#master
 ```
